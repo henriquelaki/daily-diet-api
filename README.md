@@ -8,7 +8,7 @@ This is a small exercise to create a REST API using node.js and fastify. The API
 
 - [x] should be possible to create a new user
 - [ ] should be possible identify a user among its meals
-- [ ] should be possible to register a meal with following information:
+- [x] should be possible to register a meal with following information:
   - name
   - description
   - date & time
