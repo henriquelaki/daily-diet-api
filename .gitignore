@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+
+# Environment variables
+.env
+.env.test
+.env.development
+
+# Build
+build
+
+# DB
+db/app.db
+db/test.db
+
+# VSCode
+.vscode
