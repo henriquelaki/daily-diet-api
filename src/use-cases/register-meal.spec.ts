@@ -5,7 +5,7 @@ import { RegisterMealUserUseCase } from './register-meal'
 let repository: InMemoryMealsRepository
 let sut: RegisterMealUserUseCase
 
-describe('Register a meal User Case', () => {
+describe('Register a meal Use Case', () => {
   beforeEach(() => {
     repository = new InMemoryMealsRepository()
     sut = new RegisterMealUserUseCase(repository)

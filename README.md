@@ -15,8 +15,8 @@ This is a small exercise to create a REST API using node.js and fastify. The API
   - is or isn't part of the diet
 - [x] should be possible to update a meal, changing any of the information above
 - [x] should be possible to delete a meal
-- [ ] should be possible to list all meals from a user
-- [ ] should be possible to view a single meal from a user
+- [x] should be possible to list all meals from a user
+- [x] should be possible to view a single meal
 - [ ] should be possible to retrieve user metrics:
   - total amount of registered meals
   - total amount of meals that are part of the diet

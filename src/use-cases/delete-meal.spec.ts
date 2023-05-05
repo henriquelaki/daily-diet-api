@@ -5,7 +5,7 @@ import { DeleteMealUseCase } from './delete-meal'
 let repository: InMemoryMealsRepository
 let sut: DeleteMealUseCase
 
-describe('Register a meal User Case', () => {
+describe('Register a meal Use Case', () => {
   beforeEach(() => {
     repository = new InMemoryMealsRepository()
     sut = new DeleteMealUseCase(repository)

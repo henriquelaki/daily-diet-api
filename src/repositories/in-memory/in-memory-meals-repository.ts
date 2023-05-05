@@ -5,12 +5,17 @@ import { MealsRepository } from '../meals-repository'
 export class InMemoryMealsRepository implements MealsRepository {
   public items: Meal[] = []
 
-  async findById(mealId: string): Promise<Meal | null> {
+  async findById(mealId: string) {
     const meal = this.items.find((item) => item.id === mealId)
     return meal || null
   }
 
-  async register(data: Prisma.MealUncheckedCreateInput): Promise<Meal> {
+  async findByUserId(userId: string) {
+    const meals = this.items.filter((item) => item.user_id === userId)
+    return meals
+  }
+
+  async register(data: Prisma.MealUncheckedCreateInput) {
     const meal: Meal = {
       id: randomUUID(),
       name: data.name,
@@ -26,10 +31,7 @@ export class InMemoryMealsRepository implements MealsRepository {
     return meal
   }
 
-  async update(
-    mealId: string,
-    data: Prisma.MealUpdateWithoutUserInput,
-  ): Promise<Meal> {
+  async update(mealId: string, data: Prisma.MealUpdateWithoutUserInput) {
     const mealIndex = this.items.findIndex((item) => item.id === mealId)
     if (mealIndex >= 0) {
       const oldMealData = this.items[mealIndex]
@@ -40,7 +42,7 @@ export class InMemoryMealsRepository implements MealsRepository {
     return this.items[mealIndex]
   }
 
-  async delete(mealId: string): Promise<void> {
+  async delete(mealId: string) {
     const mealIndex = this.items.findIndex((item) => item.id === mealId)
     if (mealIndex >= 0) {
       this.items.splice(mealIndex, 1)

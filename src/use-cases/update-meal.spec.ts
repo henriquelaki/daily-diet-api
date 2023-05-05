@@ -5,7 +5,7 @@ import { UpdateMealUseCase } from './update-meal'
 let repository: InMemoryMealsRepository
 let sut: UpdateMealUseCase
 
-describe('Register a meal User Case', () => {
+describe('Update a meal Use Case', () => {
   beforeEach(() => {
     repository = new InMemoryMealsRepository()
     sut = new UpdateMealUseCase(repository)
