@@ -1,6 +1,6 @@
 import { InMemoryMealsRepository } from '@/repositories/in-memory/in-memory-meals-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { GetMealUseCase } from './get-meal'
+import { GetMealUseCase } from './search-meal'
 
 let repository: InMemoryMealsRepository
 let sut: GetMealUseCase

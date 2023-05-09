@@ -3,7 +3,11 @@ import { Meal, Prisma } from '@prisma/client'
 
 interface UpdateMealUseCaseRequest {
   mealId: string
-  data: Prisma.MealUpdateWithoutUserInput
+  data: {
+    name?: string
+    mealDateTime?: Date
+    isPartOfDiet?: boolean
+  }
 }
 
 interface UpdateMealUseCaseResponse {
@@ -13,11 +17,18 @@ interface UpdateMealUseCaseResponse {
 export class UpdateMealUseCase {
   constructor(private repository: MealsRepository) {}
 
+  // TODO: allow only its owner to update a meal
   async execute({
     mealId,
     data,
   }: UpdateMealUseCaseRequest): Promise<UpdateMealUseCaseResponse> {
-    const meal = await this.repository.update(mealId, data)
+    const dataToUpdate = {
+      name: data.name,
+      meal_datetime: data.mealDateTime,
+      is_part_of_diet: data.isPartOfDiet,
+    } as Prisma.MealUpdateInput
+
+    const meal = await this.repository.update(mealId, dataToUpdate)
     return { meal }
   }
 }

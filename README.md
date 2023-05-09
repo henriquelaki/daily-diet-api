@@ -17,11 +17,11 @@ This is a small exercise to create a REST API using node.js and fastify. The API
 - [x] should be possible to delete a meal
 - [x] should be possible to list all meals from a user
 - [x] should be possible to view a single meal
-- [ ] should be possible to retrieve user metrics:
+- [x] should be possible to retrieve user metrics:
   - total amount of registered meals
   - total amount of meals that are part of the diet
   - total amount of meals that aren't part of the diet
-  - best streak of days with meals that are part of the diet
+  - best amount of meals on sequence that are part of the diet
 
 ## Business Rules
 

@@ -2,13 +2,13 @@ import { UsersRepository } from '@/repositories/users-repository'
 import { User } from '@prisma/client'
 import { hash } from 'bcryptjs'
 
-interface RegisterUseCaseRequest {
+interface CreateUserUseCaseRequest {
   name: string
   email: string
   password: string
 }
 
-interface RegisterUseCaseResponse {
+interface CreateUserUseCaseResponse {
   user: User
 }
 
@@ -19,7 +19,7 @@ export class CreateUserUseCase {
     name,
     email,
     password,
-  }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
+  }: CreateUserUseCaseRequest): Promise<CreateUserUseCaseResponse> {
     const password_hash = await hash(password, 6)
 
     const newUser = { name, email, password_hash }
