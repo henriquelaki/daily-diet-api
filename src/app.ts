@@ -28,7 +28,7 @@ app.setErrorHandler((error, _request, reply) => {
       .status(400)
       .send({ message: 'Validation Error', issues: error.format() })
 
-  if (error instanceof NoDataFoundError) {
+  if (error instanceof NoDataFoundError || error.code === 'P2025') {
     return reply.status(404).send({ message: error.message })
   }
 

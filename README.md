@@ -7,7 +7,7 @@ This is a small exercise to create a REST API using node.js and fastify. The API
 ## Functional Requirements
 
 - [x] should be possible to create a new user
-- [ ] should be possible identify a user on a request using a token
+- [x] should be possible identify a user on a request using a token
 - [x] should be possible to register a meal with following information:
   - name
   - description
@@ -25,4 +25,4 @@ This is a small exercise to create a REST API using node.js and fastify. The API
 
 ## Business Rules
 
-- [ ] An user can only see, edit and delete meals registered by himself
+- [x] An user can only see, edit and delete meals registered by himself

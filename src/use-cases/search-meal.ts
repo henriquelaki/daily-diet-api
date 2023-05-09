@@ -4,6 +4,7 @@ import { NoDataFoundError } from './errors/no-data-found-error'
 
 interface GetMealUseCaseRequest {
   mealId: string
+  userId: string
 }
 
 interface GetMealUseCaseResponse {
@@ -17,8 +18,9 @@ export class GetMealUseCase {
 
   async execute({
     mealId,
+    userId,
   }: GetMealUseCaseRequest): Promise<GetMealUseCaseResponse> {
-    const meal = await this.repository.findById(mealId)
+    const meal = await this.repository.findById(mealId, userId)
 
     if (!meal) {
       throw new NoDataFoundError()

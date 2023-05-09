@@ -28,6 +28,7 @@ export async function update(request: FastifyRequest, reply: FastifyReply) {
   const updateMealUseCase = makeUpdateMealUseCase()
   const updatedMeal = await updateMealUseCase.execute({
     mealId,
+    userId: request.user.sub,
     data: dataToUpdate,
   })
 

@@ -5,8 +5,10 @@ import { MealsRepository } from '../meals-repository'
 export class InMemoryMealsRepository implements MealsRepository {
   public items: Meal[] = []
 
-  async findById(mealId: string) {
-    const meal = this.items.find((item) => item.id === mealId)
+  async findById(mealId: string, userId: string) {
+    const meal = this.items.find(
+      (item) => item.id === mealId && item.user_id === userId,
+    )
     return meal || null
   }
 
@@ -31,8 +33,14 @@ export class InMemoryMealsRepository implements MealsRepository {
     return meal
   }
 
-  async update(mealId: string, data: Prisma.MealUpdateWithoutUserInput) {
-    const mealIndex = this.items.findIndex((item) => item.id === mealId)
+  async update(
+    mealId: string,
+    userId: string,
+    data: Prisma.MealUpdateWithoutUserInput,
+  ) {
+    const mealIndex = this.items.findIndex(
+      (item) => item.id === mealId && item.user_id === userId,
+    )
     if (mealIndex >= 0) {
       const oldMealData = this.items[mealIndex]
       const newMealData = { ...oldMealData, ...data, id: mealId } as Meal

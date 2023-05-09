@@ -7,11 +7,13 @@ export async function search(request: FastifyRequest, reply: FastifyReply) {
     mealId: z.string(),
   })
 
+  const userId = request.user.sub
   const { mealId } = searchParamsSchema.parse(request.params)
 
   const searchMealUseCase = makeSearchMealUseCase()
   const { meal } = await searchMealUseCase.execute({
     mealId,
+    userId,
   })
 
   return reply.code(200).send({ meal })

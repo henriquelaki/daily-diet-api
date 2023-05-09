@@ -19,6 +19,7 @@ describe('Fetch meals by User Use Case', () => {
 
     const { meal } = await sut.execute({
       mealId: mealToBeGot.id,
+      userId: 'user-id-1',
     })
 
     expect(meal).toEqual(
@@ -33,6 +34,7 @@ describe('Fetch meals by User Use Case', () => {
   it('Should not be able to get a meal by its id if it does not exist', async () => {
     const { meal } = await sut.execute({
       mealId: 'non-existing-meal-id',
+      userId: 'user-id-1',
     })
 
     expect(meal).toBeFalsy()

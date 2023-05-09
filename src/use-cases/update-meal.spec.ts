@@ -32,6 +32,7 @@ describe('Update a meal Use Case', () => {
 
     const { meal } = await sut.execute({
       mealId: createdMeal.id,
+      userId: 'user-id',
       data: mealUpdatedData,
     })
 
